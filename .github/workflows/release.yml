@@ -45,6 +45,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Build zip for Chrome-based browsers
+        run: |
+          npx web-ext build \
+            --source-dir dist \
+            --artifacts-dir web-ext-artifacts \
+            --overwrite-dest \
+            --filename auto-requester.zip
+
       - name: Sign and publish add-on
         run: |
           npx web-ext sign \
@@ -54,7 +62,9 @@ jobs:
             --api-key ${{ secrets.AMO_JWT_ISSUER }} \
             --api-secret ${{ secrets.AMO_JWT_SECRET }}
 
-      - name: Upload signed XPI to release
+      - name: Upload to release
         uses: softprops/action-gh-release@v3
         with:
-          files: web-ext-artifacts/*.xpi
+          files: |
+            web-ext-artifacts/*.xpi
+            web-ext-artifacts/*.zip

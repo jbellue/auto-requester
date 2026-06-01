@@ -4,7 +4,21 @@ Automatically sends HTTP requests to configured endpoints at regular intervals (
 
 **Compatible with:** Firefox, Chrome, and Edge
 
-## Build instructions (for Mozilla reviewers)
+## Installation
+
+### Firefox
+
+Install from [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/auto-requester/).
+
+### Chrome / Edge
+
+1. Go to the [latest release](../../releases/latest) and download `auto-requester.zip`
+2. Extract the zip to a permanent folder (do not delete it after loading)
+3. Open `chrome://extensions` or `edge://extensions`
+4. Enable **Developer mode** (top-right toggle in Chrome, bottom-left in Edge)
+5. Click **Load unpacked** and select the extracted folder
+
+## Build instructions
 
 ### Requirements
 
