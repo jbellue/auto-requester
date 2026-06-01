@@ -13,10 +13,10 @@ jobs:
     name: Build and Publish
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 'lts/*'
           cache: 'npm'
@@ -29,6 +29,18 @@ jobs:
 
       - name: Test
         run: npm test
+
+      - name: Bump version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          node -e "
+            const fs = require('fs');
+            ['src/manifest.json', 'package.json'].forEach(f => {
+              const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+              j.version = '$VERSION';
+              fs.writeFileSync(f, JSON.stringify(j, null, 4) + '\n');
+            });
+          "
 
       - name: Build
         run: npm run build
