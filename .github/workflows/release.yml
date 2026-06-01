@@ -13,10 +13,10 @@ jobs:
     name: Build and Publish
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: 'lts/*'
           cache: 'npm'
@@ -62,8 +62,17 @@ jobs:
             --api-key ${{ secrets.AMO_JWT_ISSUER }} \
             --api-secret ${{ secrets.AMO_JWT_SECRET }}
 
+      # - name: Publish to Chrome Web Store
+      #   uses: mnao305/chrome-extension-upload@fdfe79400af990f5145a319e834aee64907ccff4 # v6.0.0
+      #   with:
+      #     file-path: web-ext-artifacts/auto-requester.zip
+      #     extension-id: <your-chrome-extension-id>
+      #     client-id: ${{ secrets.CHROME_CLIENT_ID }}
+      #     client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+      #     refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+
       - name: Upload to release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
         with:
           files: |
             web-ext-artifacts/*.xpi
