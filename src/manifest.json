@@ -1,11 +1,11 @@
 {
     "manifest_version": 3,
     "name": "Auto Requester",
-    "version": "1.0.1",
+    "version": "0.1",
     "description": "Automatically sends HTTP requests to configured endpoints at regular intervals (e.g. to prevent session expiration)",
     "browser_specific_settings": {
         "gecko": {
-            "id": "auto-requester@example.com",
+            "id": "{1e044b96-eb52-4ffd-8060-a0362642234a}",
             "data_collection_permissions": {
                 "required": [
                     "none"
