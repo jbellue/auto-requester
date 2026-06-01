@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# web-ext artifacts
+web-ext-artifacts/
+
+# IDE
+.vscode/
+
+# TypeScript
+*.tsbuildinfo
+
+coverage/
+
+# AMO source submission ZIP
+source.zip
