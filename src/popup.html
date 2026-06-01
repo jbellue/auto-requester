@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Auto Requester</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/popup.css">
+    <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+    <div class="header" role="banner">
+        <h1>
+            <img src="icons/icon.svg" alt="Auto Requester icon">
+            <span>Auto Requester</span>
+        </h1>
+        <div class="global-status" role="status" aria-live="polite">
+            <span class="status-indicator" id="globalIndicator" aria-hidden="true"></span>
+            <span id="globalStatusText">Initializing...</span>
+        </div>
+    </div>
+
+    <div id="sitesContainer" role="main" aria-label="Site configurations"></div>
+
+    <button class="fab" id="addSite" title="Add Site" aria-label="Add new site configuration">
+        <span aria-hidden="true">+</span>
+    </button>
+
+    <div id="status" class="status" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <!-- New Site Modal -->
+    <dialog id="newSiteModal" class="fullscreen-modal" aria-labelledby="newSiteTitle">
+        <div class="fullscreen-modal-header">
+            <h2 id="newSiteTitle">New Site</h2>
+            <button class="modal-close" id="closeNewSite" aria-label="Cancel">&times;</button>
+        </div>
+        <div class="fullscreen-modal-body" id="newSiteForm"></div>
+    </dialog>
+
+    <!-- Test Result Modal -->
+    <dialog id="testModal" class="modal" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Test Result</h2>
+                <span class="modal-close" id="closeModal" role="button" tabindex="0" aria-label="Close modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="test-status">
+                    <span id="testStatusLabel">Response Code:</span>
+                    <span id="testStatus" class="test-status-badge" role="status" aria-labelledby="testStatusLabel">200</span>
+                </div>
+                <div class="test-body-section">
+                    <label for="testBody">Response Body:</label>
+                    <pre id="testBody" class="test-body" role="log" aria-label="HTTP response body"></pre>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Confirmation Modal -->
+    <dialog id="confirmModal" class="modal" aria-labelledby="confirmTitle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="confirmTitle">Confirm</h2>
+                <span class="modal-close" id="closeConfirm" role="button" tabindex="0" aria-label="Close modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage"></p>
+                <div class="button-group" style="justify-content: flex-end; margin-top: 20px;">
+                    <button type="button" class="button-secondary" id="confirmCancel">Cancel</button>
+                    <button type="button" class="button-danger" id="confirmOk">Remove</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="browser-polyfill.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

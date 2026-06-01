@@ -1,0 +1,145 @@
+:root {    
+    /* Primary Colors */
+    --primary-color: #0066cc;
+    --on-primary: #ffffff;
+    --primary-container: #d1e4ff;
+    --on-primary-container: #001d35;
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9f9f9;
+    --bg-disabled: #f0f0f0;
+    --surface: #ffffff;
+    --surface-variant: #f5f5f5;
+    --on-surface: #1c1b1f;
+    --on-surface-variant: #44464f;
+
+    /* Text Colors */
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-muted: #666;
+
+    /* Border Colors */
+    --border-color: #ddd;
+    --border-light: #e6e6e6;
+    --outline: #75787b;
+    --outline-variant: #c5c6d0;
+
+    /* Accent Colors */
+    --accent-primary: #0066cc;
+    --accent-hover: #0052a3;
+    --accent-success: #28a745;
+    --accent-success-hover: #218838;
+    --accent-danger: #cc0000;
+    --accent-danger-hover: #a30000;
+
+    /* Status Colors */
+    --status-success-bg: #d4edda;
+    --status-success-text: #155724;
+    --status-success-border: #c3e6cb;
+    --status-error-bg: #f8d7da;
+    --status-error-text: #721c24;
+    --status-error-border: #f5c6cb;
+    --status-info-bg: #d1ecf1;
+    --status-info-text: #0c5460;
+    --status-info-border: #bee5eb;
+
+    /* Input Colors */
+    --input-bg: #ffffff;
+    --input-border: #ccc;
+
+    /* Toggle Colors */
+    --toggle-inactive: #ccc;
+
+    --elevation-level-0: none;
+    --elevation-level-1: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    --elevation-level-2: 0 2px 4px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    --elevation-level-3: 0 4px 8px rgba(0, 0, 0, 0.12), 0 6px 12px rgba(0, 0, 0, 0.1);
+    --elevation-level-4: 0 6px 16px rgba(0, 0, 0, 0.15), 0 9px 18px rgba(0, 0, 0, 0.12);
+    --elevation-level-5: 0 8px 24px rgba(0, 0, 0, 0.18), 0 12px 24px rgba(0, 0, 0, 0.15);
+
+    --shape-medium: 12px;
+    --shape-large: 16px;
+    --shape-full: 9999px;
+
+    --duration-short-1: 50ms;
+    --duration-short-2: 100ms;
+    --duration-short-3: 150ms;
+    --duration-short-4: 200ms;
+    --duration-medium-1: 250ms;
+    --duration-medium-2: 300ms;
+    --duration-medium-3: 350ms;
+    --duration-medium-4: 400ms;
+    --duration-long-1: 450ms;
+    --duration-long-2: 500ms;
+    --duration-long-3: 550ms;
+    --duration-long-4: 600ms;
+
+    --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --easing-emphasized: cubic-bezier(0.4, 0, 0.2, 1);
+    --easing-decelerate: cubic-bezier(0, 0, 0, 1);
+    --easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Primary Colors */
+        --primary-color: #4da3ff;
+        --on-primary: #003258;
+        --primary-container: #004a7c;
+        --on-primary-container: #d1e4ff;
+
+        /* Background Colors */
+        --bg-primary: #1e1e1e;
+        --bg-secondary: #2d2d2d;
+        --bg-disabled: #252525;
+        --surface: #1e1e1e;
+        --surface-variant: #2d2d2d;
+        --on-surface: #e3e2e6;
+        --on-surface-variant: #c5c6d0;
+
+        /* Text Colors */
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --text-muted: #808080;
+
+        /* Border Colors */
+        --border-color: #3d3d3d;
+        --border-light: #333;
+        --outline: #8e9099;
+        --outline-variant: #44464f;
+
+        /* Accent Colors */
+        --accent-primary: #4da3ff;
+        --accent-hover: #3d8ce6;
+        --accent-success: #3cb371;
+        --accent-success-hover: #2d9e61;
+        --accent-danger: #ff4444;
+        --accent-danger-hover: #cc3333;
+
+        /* Status Colors */
+        --status-success-bg: #1e4d2e;
+        --status-success-text: #7cff9c;
+        --status-success-border: #2d6b3d;
+        --status-error-bg: #4d1e1e;
+        --status-error-text: #ff7c7c;
+        --status-error-border: #6b2d2d;
+        --status-info-bg: #1e3a4d;
+        --status-info-text: #7cd1ff;
+        --status-info-border: #2d5a6b;
+
+        /* Input Colors */
+        --input-bg: #2d2d2d;
+        --input-border: #444;
+
+        /* Toggle Colors */
+        --toggle-inactive: #555;
+
+        /* Elevation System (darker shadows for dark mode) */
+        --elevation-level-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+        --elevation-level-2: 0 2px 4px rgba(0, 0, 0, 0.35), 0 3px 6px rgba(0, 0, 0, 0.45);
+        --elevation-level-3: 0 4px 8px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.5);
+        --elevation-level-4: 0 6px 16px rgba(0, 0, 0, 0.45), 0 9px 18px rgba(0, 0, 0, 0.55);
+        --elevation-level-5: 0 8px 24px rgba(0, 0, 0, 0.5), 0 12px 24px rgba(0, 0, 0, 0.6);
+    }
+}
