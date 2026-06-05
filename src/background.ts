@@ -38,6 +38,7 @@ const REQUEST_TIMEOUT = 30000;
 let siteConfigs: SiteConfig[] = [];
 const alarmService = new AlarmService(browser.alarms);
 const storageService = new StorageService(browser.storage.sync);
+let initPromise: Promise<void> | null = null;
 
 // ============================================================================
 // Storage Functions
@@ -198,11 +199,14 @@ browser.alarms.onAlarm.addListener((alarm) => {
     const siteId = getSiteIdFromAlarmName(alarm.name);
     if (siteId === null) return;
 
-    const site = siteConfigs.find(s => s.id === siteId);
-    if (site) {
-        console.log(`Alarm triggered for ${site.endpoint}`);
-        sendRequestForSite(site);
-    }
+    (async () => {
+        if (initPromise) await initPromise;
+        const site = siteConfigs.find(s => s.id === siteId);
+        if (site) {
+            console.log(`Alarm triggered for ${site.endpoint}`);
+            await sendRequestForSite(site);
+        }
+    })();
 });
 
 // Listen for messages from popup
@@ -330,7 +334,7 @@ browser.storage.onChanged.addListener((changes: { [key: string]: { oldValue?: un
 
 // Initialize
 console.log("Message listener registered");
-(async () => {
+initPromise = (async () => {
     try {
         await loadConfig();
         console.log("Background script initialized successfully");
@@ -338,4 +342,5 @@ console.log("Message listener registered");
         console.error("Failed to initialize background script:", error);
     }
 })();
+initPromise.finally(() => { initPromise = null; });
 })();
